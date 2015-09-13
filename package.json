@@ -1,0 +1,18 @@
+{
+  "name": "irsdk",
+  "version": "0.1.0",
+  "description": "nodejs client for ir services of sightp.com",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EasyAR/irsdk-node.git"
+  },
+  "author": "qszhu@sightp.com",
+  "license": "MIT",
+  "dependencies": {
+    "msgpack5": "^3.1.0",
+    "q": "^1.4.1",
+    "superagent": "^1.3.0",
+    "ws": "^0.8.0"
+  }
+}
