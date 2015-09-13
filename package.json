@@ -3,12 +3,19 @@
   "version": "0.1.0",
   "description": "nodejs client for ir services of sightp.com",
   "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/EasyAR/irsdk-node.git"
   },
   "author": "qszhu@sightp.com",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EasyAR/irsdk-node/issues"
+  },
+  "homepage": "https://github.com/EasyAR/irsdk-node#readme",
   "dependencies": {
     "msgpack5": "^3.1.0",
     "q": "^1.4.1",

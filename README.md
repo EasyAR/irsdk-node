@@ -1,6 +1,28 @@
-### Samples
+### Classes
 
-#### Add search target
+#### Farmer
+CRUD for targets
+
+* `function farmerClient(host, appKey, appSecret)`
+  * `function ping()`
+  * `function getTargets()`
+  * `function createTarget(target)`
+  * `function getTarget(targetId)`
+  * `function updateTarget(targetId, data)`
+  * `function deleteTarget(targetId)`
+
+#### Gateway
+Searching of targets
+
+* `function gatewayClient(host, appKey, appSecret)`
+  * `function ping()`
+  * `function search(image)`
+  * `function createTunnel()`
+  * `function searchViaTunnel(tunnel, image)`
+
+### Sample usage
+
+#### Add a target represented by an image
 ```javascript
 var farmer = sdk.farmer('http://localhost:8888', 'test_app_key', 'test_app_secret');
 
@@ -16,7 +38,7 @@ farmer.createTarget({
 });
 ```
 
-#### Search target
+#### Search a target by an image
 ```javascript
 var gateway = sdk.gateway('http://localhost:8080', 'test_app_key', 'test_app_secret');
 
