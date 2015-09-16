@@ -10,6 +10,7 @@ CRUD for targets
   * `function getTarget(targetId)`
   * `function updateTarget(targetId, data)`
   * `function deleteTarget(targetId)`
+  * `function similar(image)`
 
 #### Gateway
 Searching of targets

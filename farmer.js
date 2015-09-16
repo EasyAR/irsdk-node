@@ -79,13 +79,22 @@ function farmerClient(host, appKey, appSecret) {
         });
     }
 
+    function similar(image) {
+        return Q.promise(function(resolve, reject) {
+            request.post(host + '/similar/')
+            .send(signParams(image))
+            .end(done(resolve, reject));
+        });
+    }
+
     return {
         ping: ping,
         getTargets: getTargets,
         createTarget: createTarget,
         getTarget: getTarget,
         updateTarget: updateTarget,
-        deleteTarget: deleteTarget
+        deleteTarget: deleteTarget,
+        similar: similar
     };
 
 };
