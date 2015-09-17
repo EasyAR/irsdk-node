@@ -6,6 +6,7 @@ CRUD for targets
 * `function farmerClient(host, appKey, appSecret)`
   * `function ping()`
   * `function getTargets()`
+  * `function getTargetsCount()`
   * `function createTarget(target)`
   * `function getTarget(targetId)`
   * `function updateTarget(targetId, data)`

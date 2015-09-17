@@ -39,6 +39,13 @@ function farmerClient(host, appKey, appSecret) {
         });
     }
 
+    function getTargetsCount() {
+        return Q.promise(function(resolve, reject) {
+            request.get(host + '/targets/count')
+            .end(done(resolve, reject));
+        });
+    }
+
     function getTargets() {
         return Q.promise(function(resolve, reject) {
             request.get(host + '/targets/')
@@ -89,6 +96,7 @@ function farmerClient(host, appKey, appSecret) {
 
     return {
         ping: ping,
+        getTargetsCount: getTargetsCount,
         getTargets: getTargets,
         createTarget: createTarget,
         getTarget: getTarget,
