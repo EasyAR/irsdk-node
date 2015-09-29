@@ -60,3 +60,53 @@ gateway.createTunnel()
     console.log(err);
 });
 ```
+
+### Scripts
+
+#### `addTarget`
+```
+Usage: addTarget [image] -t [host] -c [keys]
+
+Options:
+  -h, --help  Show help                                                [boolean]
+  -t, --host                                  [default: "http://localhost:8888"]
+  -c, --keys                                              [default: "keys.json"]
+
+copyright 2015, sightp.com
+```
+
+#### `getTarget`
+```
+Usage: getTarget [targetId] -t [host] -c [keys]
+
+Options:
+  -h, --help  Show help                                                [boolean]
+  -t, --host                                  [default: "http://localhost:8888"]
+  -c, --keys                                              [default: "keys.json"]
+
+copyright 2015, sightp.com
+```
+
+#### `searchTarget`
+```
+Usage: searchTarget [image] -t [host] -c [keys]
+
+Options:
+  -h, --help  Show help                                                [boolean]
+  -t, --host                                  [default: "http://localhost:8080"]
+  -c, --keys                                              [default: "keys.json"]
+
+copyright 2015, sightp.com
+```
+
+#### `deleteTarget`
+```
+Usage: deleteTarget [targetId] -t [host] -c [keys]
+
+Options:
+  -h, --help  Show help                                                [boolean]
+  -t, --host                                  [default: "http://localhost:8888"]
+  -c, --keys                                              [default: "keys.json"]
+
+copyright 2015, sightp.com
+```
