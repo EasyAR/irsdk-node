@@ -19,11 +19,11 @@ var farmer = require('../farmer')(host, keys.appKey, keys.appSecret);
 
 farmer.getTarget(targetId)
 .then(function(resp) {
-  var trackingImage = resp.result.trackingImage;
-  resp.result.trackingImage = '<see ./trackingImage.jpg>';
-  fs.writeFileSync('trackingImage.jpg', new Buffer(trackingImage, 'base64'));
-  console.log(resp);
+    var trackingImage = resp.result.trackingImage;
+    resp.result.trackingImage = '<see ./trackingImage.jpg>';
+    fs.writeFileSync('trackingImage.jpg', new Buffer(trackingImage, 'base64'));
+    console.log(resp);
 })
 .fail(function(err) {
-  console.log(err);
+    console.log(err);
 });

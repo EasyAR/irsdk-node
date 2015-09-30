@@ -13,7 +13,8 @@ function farmerClient(host, appKey, appSecret) {
         return auth.signParams(params,
             new Date().toISOString(),
             appKey,
-            appSecret);
+            appSecret
+        );
     }
 
     function errorJson(json) {

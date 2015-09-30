@@ -19,8 +19,8 @@ var farmer = require('../farmer')(host, keys.appKey, keys.appSecret);
 
 farmer.deleteTarget(targetId)
 .then(function(resp) {
-  console.log(resp.result.targetId);
+    console.log(resp.result.targetId);
 })
 .fail(function(err) {
-  console.log(err);
+    console.log(err);
 });

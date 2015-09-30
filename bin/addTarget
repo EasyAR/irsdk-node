@@ -18,11 +18,11 @@ var keys = JSON.parse(fs.readFileSync(argv.keys));
 var farmer = require('../farmer')(host, keys.appKey, keys.appSecret);
 
 farmer.createTarget({
-  'image': fs.readFileSync(imageFn).toString('base64')
+    'image': fs.readFileSync(imageFn).toString('base64')
 })
 .then(function(resp) {
-  console.log(resp.result.targetId);
+    console.log(resp.result.targetId);
 })
 .fail(function(err) {
-  console.log(err);
+    console.log(err);
 });
