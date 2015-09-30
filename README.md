@@ -21,6 +21,7 @@ Searching of targets
   * `function search(image)`
   * `function createTunnel()`
   * `function searchViaTunnel(tunnel, image)`
+  * `function searchViaTunnelOnHost(host, tunnel, image)`
 
 ### Sample usage
 

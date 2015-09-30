@@ -15,7 +15,8 @@ function gatewayClient(host, appKey, appSecret) {
         return auth.signParams(params,
             new Date().toISOString(),
             appKey,
-            appSecret);
+            appSecret
+        );
     }
 
     function errorJson(json) {
@@ -57,9 +58,9 @@ function gatewayClient(host, appKey, appSecret) {
         });
     }
 
-    function searchViaTunnel(tunnel, image) {
+    function searchViaTunnelOnHost(host, tunnel, image) {
         return Q.promise(function(resolve, reject) {
-            var searchTunnel = 'ws' + host.substr(host.indexOf('://')) + '/services/recognize/' + tunnel;
+            var searchTunnel = 'ws://' + host + '/services/recognize/' + tunnel;
             var ws = new websocket(searchTunnel);
             ws.on('open', function() {
                 ws.send(msgpack.encode(image), function(err) {
@@ -78,10 +79,15 @@ function gatewayClient(host, appKey, appSecret) {
         });
     }
 
+    function searchViaTunnel(tunnel, image) {
+        return searchViaTunnelOnHost(host.substr(host.indexOf('://') + 3), tunnel, image);
+    }
+
     return {
         ping: ping,
         search: search,
         createTunnel: createTunnel,
+        searchViaTunnelOnHost: searchViaTunnelOnHost,
         searchViaTunnel: searchViaTunnel
     };
 

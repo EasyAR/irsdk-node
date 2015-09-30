@@ -17,12 +17,18 @@ var keys = JSON.parse(fs.readFileSync(argv.keys));
 
 var gateway = require('../gateway')(host, keys.appKey, keys.appSecret);
 
-gateway.search({
-  'image': fs.readFileSync(imageFn).toString('base64')
+gateway.createTunnel()
+.then(function(resp) {
+    var tunnel = resp.result.tunnel;
+    var host = resp.host + ':' + resp.port;
+    var image = {
+        'image': fs.readFileSync('test.jpg')
+    };
+    return gateway.searchViaTunnelOnHost(host, tunnel, image);
 })
 .then(function(resp) {
-  console.log(resp.result.target.targetId);
+    console.log(resp.result.target.targetId);
 })
 .fail(function(err) {
-  console.log(err);
+    console.log(err);
 });
