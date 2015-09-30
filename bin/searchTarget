@@ -10,16 +10,15 @@ var argv = require('yargs')
     .argv;
 
 var fs = require('fs');
-var path = require('path');
 
 var imageFn = argv._[0];
 var host = argv.host;
-var keys = require(path.join(process.cwd(), argv.keys));
+var keys = JSON.parse(fs.readFileSync(argv.keys));
 
 var gateway = require('../gateway')(host, keys.appKey, keys.appSecret);
 
 gateway.search({
-  'image': fs.readFileSync(path.join(process.cwd(), imageFn)).toString('base64')
+  'image': fs.readFileSync(imageFn).toString('base64')
 })
 .then(function(resp) {
   console.log(resp.result.target.targetId);

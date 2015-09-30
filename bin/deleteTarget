@@ -10,11 +10,10 @@ var argv = require('yargs')
     .argv;
 
 var fs = require('fs');
-var path = require('path');
 
 var targetId = argv._[0];
 var host = argv.host;
-var keys = require(path.join(process.cwd(), argv.keys));
+var keys = JSON.parse(fs.readFileSync(argv.keys));
 
 var farmer = require('../farmer')(host, keys.appKey, keys.appSecret);
 
