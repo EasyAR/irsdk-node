@@ -22,7 +22,7 @@ gateway.createTunnel()
     var tunnel = resp.result.tunnel;
     var host = resp.host + ':' + resp.port;
     var image = {
-        'image': fs.readFileSync('test.jpg')
+        'image': fs.readFileSync(imageFn)
     };
     return gateway.searchViaTunnelOnHost(host, tunnel, image);
 })
