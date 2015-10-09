@@ -12,6 +12,8 @@ CRUD for targets
   * `function updateTarget(targetId, data)`
   * `function deleteTarget(targetId)`
   * `function similar(image)`
+  * `function getDetectionGrade(image)`
+  * `function getTrackingGrade(image)`
 
 #### Gateway
 Searching of targets

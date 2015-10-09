@@ -95,6 +95,22 @@ function farmerClient(host, appKey, appSecret) {
         });
     }
 
+    function getDetectionGrade(image) {
+        return Q.promise(function(resolve, reject) {
+            request.post(host + '/grade/detection/')
+            .send(signParams(image))
+            .end(done(resolve, reject));
+        });
+    }
+
+    function getTrackingGrade(image) {
+        return Q.promise(function(resolve, reject) {
+            request.post(host + '/grade/tracking/')
+            .send(signParams(image))
+            .end(done(resolve, reject));
+        });
+    }
+
     return {
         ping: ping,
         getTargetsCount: getTargetsCount,
@@ -103,7 +119,9 @@ function farmerClient(host, appKey, appSecret) {
         getTarget: getTarget,
         updateTarget: updateTarget,
         deleteTarget: deleteTarget,
-        similar: similar
+        similar: similar,
+        getDetectionGrade: getDetectionGrade,
+        getTrackingGrade: getTrackingGrade
     };
 
 };
