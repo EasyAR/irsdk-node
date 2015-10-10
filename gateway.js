@@ -29,10 +29,10 @@ function gatewayClient(host, appKey, appSecret) {
                 reject(err);
             } else {
                 var body = res.body;
-                if (body.statusCode != 0) reject(errorJson(body));
+                if (body.statusCode) reject(errorJson(body));
                 else resolve(body);
             }
-        }
+        };
     }
 
     function ping() {
@@ -69,7 +69,7 @@ function gatewayClient(host, appKey, appSecret) {
             });
             ws.on('message', function(data) {
                 var res = JSON.parse(data);
-                if (res.statusCode != 0) reject(errorJson(res));
+                if (res.statusCode) reject(errorJson(res));
                 else resolve(res);
                 ws.close();
             });
@@ -91,6 +91,6 @@ function gatewayClient(host, appKey, appSecret) {
         searchViaTunnel: searchViaTunnel
     };
 
-};
+}
 
 module.exports = gatewayClient;

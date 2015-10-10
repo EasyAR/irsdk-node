@@ -27,10 +27,10 @@ function farmerClient(host, appKey, appSecret) {
                 reject(err);
             } else {
                 var body = res.body;
-                if (body.statusCode != 0) reject(errorJson(body));
+                if (body.statusCode) reject(errorJson(body));
                 else resolve(body);
             }
-        }
+        };
     }
 
     function ping() {
@@ -124,6 +124,6 @@ function farmerClient(host, appKey, appSecret) {
         getTrackingGrade: getTrackingGrade
     };
 
-};
+}
 
 module.exports = farmerClient;

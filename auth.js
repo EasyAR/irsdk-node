@@ -11,9 +11,9 @@ function genSign(params, appSecret) {
 }
 
 exports.signParams = function(params, date, appKey, appSecret) {
-    params['date'] = date;
-    params['appKey'] = appKey;
-    params['signature'] = genSign(params, appSecret);
+    params.date = date;
+    params.appKey = appKey;
+    params.signature = genSign(params, appSecret);
 
     return params;
-}
+};

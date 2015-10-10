@@ -20,11 +20,12 @@ var gateway = require('../gateway')(host, keys.appKey, keys.appSecret);
 gateway.createTunnel()
 .then(function(resp) {
     var tunnel = resp.result.tunnel;
-    var host = resp.host + ':' + resp.port;
+    var host = resp.host ? resp.host + ':' + resp.port : undefined;
     var image = {
         'image': fs.readFileSync(imageFn)
     };
-    return gateway.searchViaTunnelOnHost(host, tunnel, image);
+    return host ? gateway.searchViaTunnelOnHost(host, tunnel, image)
+        : gateway.searchViaTunnel(tunnel, image);
 })
 .then(function(resp) {
     console.log(resp.result.target.targetId);
